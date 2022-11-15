@@ -17,7 +17,7 @@ import History from '../components/History'
 import Profile from "@/User/components/Profile";
 
 export default {
-  name: 'Simulator',
+  name: 'HistoryView',
 
   components: {
     History,

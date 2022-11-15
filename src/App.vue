@@ -52,7 +52,9 @@ export default {
   data: () => ({
     rutes:[
       { name: 'Simulador', rute: '/simulador' },
-      { name: 'Historial', rute: '/historial' }
+      { name: 'Historial', rute: '/historial' },
+      { name: 'Login', rute: '/login' },
+      { name: 'Signup', rute: '/signup' }
     ]
   }),
 

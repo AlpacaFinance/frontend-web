@@ -14,10 +14,10 @@
 
 <script>
   import Simulator from '../components/Simulator'
-  import Profile from "@/User/components/Profile";
+  import Profile from "@/User/components/Profile"
 
   export default {
-    name: 'Home',
+    name: 'SimulatorView',
 
     components: {
       Simulator,

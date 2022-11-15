@@ -10,7 +10,9 @@
         <v-row>
           <!-- Divisa -->
           <v-col cols="6">
+            <p class="text-left">
               ¿Con qué divisa deseas realizar la simulación?
+            </p>
             <v-sheet>
               <v-switch
                   v-model="divisa"
@@ -22,12 +24,14 @@
 
           <!-- Importe -->
           <v-col>
+            <p class="text-left">
               ¿Cúal es el importe que deseas simular?
-
+            </p>
             <v-text-field
                 v-model="amount"
                 :rules="importRules"
                 placeholder="S/ 0.00"
+                clearable
                 label="Importe"
                 required
             ></v-text-field>
@@ -37,12 +41,14 @@
         <v-row>
           <!-- Selector de Tasa de Interés -->
           <v-col cols="6">
+            <p class="text-left">
               ¿Cúal es el tipo de la tasa de interés?
+            </p>
             <v-select
                 v-model="select"
                 :items="items"
                 :error-messages="errors"
-                label="Select"
+                label="Tasa de Interés"
                 data-vv-name="select"
                 required
             ></v-select>
@@ -50,12 +56,15 @@
 
           <!-- Tasa de interés -->
           <v-col>
+            <p class="text-left">
               ¿Cúal es la tasa de interés?
+            </p>
             <v-text-field
                 v-model="rate"
                 :rules="rateRules"
                 label="Tasa"
                 placeholder="0%"
+                clearable
                 required
             ></v-text-field>
           </v-col>
@@ -146,7 +155,7 @@
 
 <script>
   export default {
-    name: 'Simulator',
+    name: 'SimulatorComponent',
     data: () => ({
       divisa:false,
       valid:false,

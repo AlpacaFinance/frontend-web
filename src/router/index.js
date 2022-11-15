@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import SimulatorView from '../Simulator/pages/SimulatorView.vue'
+import SimulatorView from '../Simulator/pages/SimulatorView'
+import HistoryView from "../History/pages/HistoryView"
+import LoginView from "../User/pages/LoginView"
+import SignupView from "../User/pages/SignupView"
 
 Vue.use(VueRouter)
 
@@ -18,9 +21,17 @@ const routes = [
   {
     path: '/historial',
     name: 'history',
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../History/pages/HistoryView.vue')
-    }
+    component: HistoryView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignupView
   }
 ]
 

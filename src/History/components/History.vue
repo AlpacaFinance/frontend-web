@@ -13,8 +13,8 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-        :headers="headers"
-        :items="desserts"
+        :headers="historyHeaders"
+        :items="historyElements"
         :search="search"
     ></v-data-table>
   </v-card>
@@ -25,99 +25,48 @@ export default {
   data () {
     return {
       search: '',
-      headers: [
-        {
-          text: 'Dessert (100g serving)',
-          align: 'start',
-          sortable: false,
-          value: 'name',
-        },
-        { text: 'Calories', value: 'calories' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
-        { text: 'Iron (%)', value: 'iron' },
+      historyHeaders: [
+        { text: 'Información de Operación', value: 'infoOperation', sortable:false, align: 'start' },
+        { text: 'Moneda', value: 'divisa', sortable:false },
+        { text: 'Tasa de Interés', value: 'percentage', sortable:false },
+        { text: 'Tipo de Tasa', value: 'rateType', sortable:false },
+        { text: 'Importe', value: 'amount', sortable:false },
       ],
-      desserts: [
+      historyElements: [
         {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-          iron: '1%',
+          infoOperation: 'Frozen Yogurt',
+          divisa: 159,
+          percentage: 6.0,
+          rateType: 24,
+          amount: 4.0,
         },
         {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-          iron: '1%',
+          infoOperation: 'Ice cream sandwich',
+          divisa: 237,
+          percentage: 9.0,
+          rateType: 37,
+          amount: 4.3,
         },
         {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-          iron: '7%',
+          infoOperation: 'Eclair',
+          divisa: 262,
+          percentage: 16.0,
+          rateType: 23,
+          amount: 6.0,
         },
         {
-          name: 'Cupcake',
-          calories: 305,
-          fat: 3.7,
-          carbs: 67,
-          protein: 4.3,
-          iron: '8%',
+          infoOperation: 'Cupcake',
+          divisa: 305,
+          percentage: 3.7,
+          rateType: 67,
+          amount: 4.3,
         },
         {
-          name: 'Gingerbread',
-          calories: 356,
-          fat: 16.0,
-          carbs: 49,
-          protein: 3.9,
-          iron: '16%',
-        },
-        {
-          name: 'Jelly bean',
-          calories: 375,
-          fat: 0.0,
-          carbs: 94,
-          protein: 0.0,
-          iron: '0%',
-        },
-        {
-          name: 'Lollipop',
-          calories: 392,
-          fat: 0.2,
-          carbs: 98,
-          protein: 0,
-          iron: '2%',
-        },
-        {
-          name: 'Honeycomb',
-          calories: 408,
-          fat: 3.2,
-          carbs: 87,
-          protein: 6.5,
-          iron: '45%',
-        },
-        {
-          name: 'Donut',
-          calories: 452,
-          fat: 25.0,
-          carbs: 51,
-          protein: 4.9,
-          iron: '22%',
-        },
-        {
-          name: 'KitKat',
-          calories: 518,
-          fat: 26.0,
-          carbs: 65,
-          protein: 7,
-          iron: '6%',
+          infoOperation: 'Gingerbread',
+          divisa: 356,
+          percentage: 16.0,
+          rateType: 49,
+          amount: 3.9,
         },
       ],
     }

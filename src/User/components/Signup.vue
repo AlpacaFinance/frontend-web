@@ -58,8 +58,21 @@
                     ></v-text-field>
                   </validation-provider>
 
-                  <!--TO-DO:
-                  Password-->
+                  <validation-provider
+                      v-slot="{ errors }"
+                      name="password"
+                      rules="required|min:3"
+                  >
+                    <v-text-field
+                        v-model="password"
+                        :error-messages="errors"
+                        label="Contraseña"
+                        required
+                        :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
+                        :type="showPass ? 'text' : 'password'"
+                        @click:append="showPass = !showPass"
+                    ></v-text-field>
+                  </validation-provider>
 
                   <p class="subtitle-1 font-weight-bold">
                     Información de la Cuenta
@@ -198,7 +211,7 @@
 </template>
 
 <script>
-import {required, digits, email, max, regex} from 'vee-validate/dist/rules'
+import {required, digits, email, min, max, regex} from 'vee-validate/dist/rules'
 import {extend, ValidationObserver, ValidationProvider, setInteractionMode} from 'vee-validate'
 
 setInteractionMode('eager')
@@ -216,6 +229,11 @@ extend('required', {
 extend('mustAccept', {
   ...required,
   message: 'Required',
+})
+
+extend('min', {
+  ...min,
+  message: '{_field_} may be greater than {length} characters',
 })
 
 extend('max', {
@@ -242,6 +260,8 @@ export default {
     firstName: '',
     lastName: '',
     email: '',
+    showPass: false,
+    password: '',
     documentType: '',
     documentTypeList: ['DNI', 'Carnet de Extranjería', 'Pasaporte'],
     documentNumber:'',

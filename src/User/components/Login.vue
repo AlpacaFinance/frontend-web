@@ -7,7 +7,7 @@
             <v-card class="elevation-12 pa-10 rounded-xl">
               <v-card-text>
                 <v-card-title class="font-weight-bold">
-                  Te damos la bienvenida a AlpacaFinance
+                  Te damos la bienvenida a Alpaca Finance
                 </v-card-title>
                 <v-form>
                   <v-text-field
@@ -29,39 +29,41 @@
                       hint="At least 8 characters"
                       @click:append="showPass = !showPass"
                   ></v-text-field>
+
+                  <v-list-item class="subtitle-1 font-weight-bold" to="/historial" link>
+                    ¿Has olvidado tu contraseña?
+                  </v-list-item>
+                  <v-card-actions>
+                    <v-row
+                        class="pa-5"
+                        align="center"
+                        justify="space-around">
+                      <v-btn
+                          width="80%"
+                          rounded
+                          color="primary"
+                          to="/">Iniciar Sesión
+                      </v-btn>
+                    </v-row>
+                  </v-card-actions>
                 </v-form>
               </v-card-text>
-              <v-list-item class="subtitle-1 font-weight-bold" to="/historial" link>
-                ¿Has olvidado tu contraseña?
-              </v-list-item>
-              <v-card-actions>
-                <v-row
-                    class="pa-5"
-                    align="center"
-                    justify="space-around">
-                  <v-btn
-                      width="80%"
-                      rounded
-                      color="primary"
-                      to="/">Iniciar Sesión</v-btn>
-                </v-row>
-              </v-card-actions>
-              <p class="text-center subtitle-1 font-weight-bold">
+              <v-card-text class="text-center subtitle-1 font-weight-bold">
                 ¿Aún no tienes una cuenta?
-              </p>
+              </v-card-text>
               <v-card-actions>
                 <v-row
                     class="pa-5"
                     align="center"
                     justify="space-around">
                   <v-btn
-                      width="80%"
+                      width="75%"
                       rounded
                       color="primary"
-                      to="/signup">Registrate</v-btn>
+                      to="/signup">Registrate
+                  </v-btn>
                 </v-row>
               </v-card-actions>
-
             </v-card>
           </v-flex>
         </v-layout>
@@ -76,7 +78,7 @@ export default {
   props: {
     source: String,
   },
-  data () {
+  data() {
     return {
       email: '',
       showPass: false,

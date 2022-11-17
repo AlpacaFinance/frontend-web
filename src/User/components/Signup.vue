@@ -218,7 +218,7 @@ setInteractionMode('eager')
 
 extend('digits', {
   ...digits,
-  message: '{_field_} needs to be {length} digits. ({_value_})',
+  message: 'Este campo debe contener {length} dígitos. ({_value_})',
 })
 
 extend('required', {

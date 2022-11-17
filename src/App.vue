@@ -53,8 +53,8 @@ export default {
     rutes:[
       { name: 'Simulador', rute: '/simulador' },
       { name: 'Historial', rute: '/historial' },
-      { name: 'Login', rute: '/login' },
-      { name: 'Signup', rute: '/signup' }
+      { name: 'Iniciar sesión', rute: '/login' },
+      { name: 'Registrarse', rute: '/signup' }
     ]
   }),
 

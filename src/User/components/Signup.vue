@@ -18,11 +18,11 @@
                       <validation-provider
                           v-slot="{ errors }"
                           name="firstName"
-                          rules="required|max:15"
+                          rules="required|max:30"
                       >
                         <v-text-field
                             v-model="firstName"
-                            :counter="15"
+                            :counter="30"
                             :error-messages="errors"
                             label="Nombres"
                             required
@@ -223,22 +223,22 @@ extend('digits', {
 
 extend('required', {
   ...required,
-  message: '{_field_} can not be empty',
+  message: 'Este campo no puede estar vacío',
 })
 
 extend('mustAccept', {
   ...required,
-  message: 'Required',
+  message: 'Se requiere que seleccione esta opción',
 })
 
 extend('min', {
   ...min,
-  message: '{_field_} may be greater than {length} characters',
+  message: 'No puede contener menos de {length} characters',
 })
 
 extend('max', {
   ...max,
-  message: '{_field_} may not be greater than {length} characters',
+  message: 'No puede exceder los {length} caracteres',
 })
 
 extend('regex', {
@@ -248,7 +248,7 @@ extend('regex', {
 
 extend('email', {
   ...email,
-  message: 'Email must be valid',
+  message: 'El correo debe ser válido',
 })
 
 export default {

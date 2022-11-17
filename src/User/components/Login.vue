@@ -95,12 +95,12 @@ setInteractionMode('eager')
 
 extend('required', {
   ...required,
-  message: '{_field_} can not be empty',
+  message: 'Este campo no puede estar vacío',
 })
 
 extend('email', {
   ...email,
-  message: 'Email must be valid',
+  message: 'El correo tiene que ser válido',
 })
 
 export default {

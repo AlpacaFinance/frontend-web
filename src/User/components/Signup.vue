@@ -233,7 +233,7 @@ extend('mustAccept', {
 
 extend('min', {
   ...min,
-  message: 'No puede contener menos de {length} characters',
+  message: 'No puede contener menos de {length} caracteres',
 })
 
 extend('max', {

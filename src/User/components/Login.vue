@@ -1,3 +1,4 @@
+
 <template>
   <v-app>
     <v-content>
@@ -51,10 +52,11 @@
                       align="center"
                       justify="space-around">
                     <v-btn
+                        v-on:click="login"
                         width="80%"
                         rounded
                         color="primary"
-                        to="/"
+
                         :disabled="invalid"
                     >
                       Iniciar Sesión
@@ -103,6 +105,7 @@ extend('email', {
   message: 'El correo tiene que ser válido',
 })
 
+import axios from 'axios'
 export default {
   components: {
     ValidationProvider,
@@ -117,6 +120,16 @@ export default {
   methods: {
     submit() {
       this.$refs.observer.validate()
+    },
+    async login(){
+      var urlemail = encodeURIComponent(this.email)
+      var urlpassword = encodeURIComponent(this.password)
+      let result = await axios.get(`https://alpacafinance.azurewebsites.net/api/v1/usuario/login?email=${urlemail}&password=${urlpassword}`)
+
+      if(result.status==200){
+        this.$router.go("/simulator")
+      }
+
     },
   },
 }

@@ -29,7 +29,7 @@
             </p>
             <v-text-field
                 v-model="amount"
-                :rules="importRules"
+                :rules="amountRules"
                 placeholder="S/ 0.00"
                 clearable
                 label="Importe"

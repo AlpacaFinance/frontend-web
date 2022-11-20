@@ -76,7 +76,13 @@ export default {
       this.$router.push(rute);
     },
     insertInternalRutes(rute){
-      this.$router.push(rute + this.userId);
+      if(rute==='/'){
+        this.$router.push(rute);
+      }
+      else {
+        this.$router.push(rute + this.userId);
+      }
+
     },
   },
   mounted() {

@@ -120,15 +120,15 @@
                     <v-col cols="4">
                       <validation-provider
                           v-slot="{ errors }"
-                          name="country code"
+                          name="country"
                           rules="required"
                       >
                         <v-select
-                            v-model="countryCode"
-                            :items="countryCodeList"
+                            v-model="country"
+                            :items="countryList"
                             :error-messages="errors"
-                            label="Código de País"
-                            data-vv-name="countryCodeSelect"
+                            label="País"
+                            data-vv-name="countrySelect"
                             required
                             solo
                         ></v-select>
@@ -213,6 +213,7 @@
 <script>
 import {required, digits, email, min, max, regex} from 'vee-validate/dist/rules'
 import {extend, ValidationObserver, ValidationProvider, setInteractionMode} from 'vee-validate'
+import {postUser} from "@/User/services/profileServices";
 
 setInteractionMode('eager')
 
@@ -265,8 +266,8 @@ export default {
     documentType: '',
     documentTypeList: ['DNI', 'Carnet de Extranjería', 'Pasaporte'],
     documentNumber:'',
-    countryCode:'',
-    countryCodeList:['+51 (Perú)', '+52 (México)', '+56 (Chile)', '+57 (Colombia)'],
+    country:'',
+    countryList:['Perú', 'México', 'Chile', 'Colombia'],
     phoneNumber: '',
     ageCheckbox: null,
     termsAgreeCheckbox: null,
@@ -275,6 +276,25 @@ export default {
   methods: {
     submit() {
       this.$refs.observer.validate()
+    },
+    async signup() {
+      let user = {
+        name: this.firstName + '' + this.lastName,
+        dni: this.documentNumber,
+        email: this.email,
+        password: this.password,
+        country: this.country,
+        phone: this.phoneNumber,
+      };
+
+      await postUser(user).then(resp =>{
+        console.log(resp)
+        this.$router.push("/login")
+      });
+
+      /*if (result.status === 200) {
+        console.log(result.data)
+      }*/
     },
   },
 }

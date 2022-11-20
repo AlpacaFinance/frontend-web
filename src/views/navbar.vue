@@ -26,14 +26,29 @@
 
     <v-spacer></v-spacer>
 
-    <v-btn
-        v-for="(item, index) in rutes" :key="index"
-        text
-        @click="insertRutes(item.rute)"
-    >
-      <span class="mr-2">{{item.name}}</span>
-    </v-btn>
+    <template
+        v-if="this.$router.currentRoute.name === 'login'
+        || this.$router.currentRoute.name === 'signup'">
+      <v-btn
+          v-for="(item, index) in externalRutes" :key="index"
+          text
+          @click="insertRutes(item.rute)"
+      >
+        <span class="mr-2">{{item.name}}</span>
+      </v-btn>
+    </template>
 
+    <template
+        v-if="this.$router.currentRoute.name === 'simulator'
+        || this.$router.currentRoute.name === 'history'">
+      <v-btn
+          v-for="(item, index) in internalRutes" :key="index"
+          text
+          @click="insertRutes(item.rute)"
+      >
+        <span class="mr-2">{{item.name}}</span>
+      </v-btn>
+    </template>
 
   </v-app-bar>
 </template>
@@ -44,16 +59,25 @@ export default {
   name: 'NavBar',
 
   data: () => ({
-    rutes:[
-      { name: 'Simulador', rute: '/simulador' },
-      { name: 'Historial', rute: '/historial' }
-    ]
+    externalRutes:[
+      { name: 'Iniciar sesión', rute: '/login' },
+      { name: 'Registrarse', rute: '/signup' }
+    ],
+    internalRutes:[
+      { name: 'Simulador', rute: '/simulador/' },
+      { name: 'Historial', rute: '/historial/' },
+      { name: 'Cerrar Sesión', rute: '/' },
+    ],
+    userId: null,
   }),
 
   methods: {
     insertRutes(rute){
-      this.$router.push(rute);
+      this.$router.push(rute + this.userId);
     }
+  },
+  mounted() {
+    this.userId = this.$route.params.id;
   }
 };
 </script>

@@ -154,12 +154,15 @@
 </template>
 
 <script>
+  import {getRateTypeList} from "@/Simulator/services/simulatorServices";
+
   export default {
     name: 'SimulatorComponent',
     data: () => ({
       divisa:false,
       valid:false,
       amount: '',
+      errors: [],
       amountRules: [
         v => !!v || 'Import is required',
       ],
@@ -235,6 +238,25 @@
       messages () {
         return this.divisa ? ['Dolares'] : ['Soles']
       },
+    },
+    methods: {
+      /*submit() {
+        this.$refs.observer.validate()
+      },*/
+      async rateTypeList() {
+        let result = await getRateTypeList()
+
+        if (result.status === 200) {
+          console.log(result.data)
+        }
+      },
+    },
+    mounted() {
+      let result = getRateTypeList()
+
+      if (result.status === 200) {
+        console.log(result.data)
+      }
     },
   }
 </script>

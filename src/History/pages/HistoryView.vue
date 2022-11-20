@@ -2,11 +2,11 @@
   <v-container>
     <v-row>
       <v-col cols="3">
-        <Profile />
+        <Profile/>
       </v-col>
 
       <v-col cols="9">
-        <History />
+        <History/>
       </v-col>
     </v-row>
   </v-container>

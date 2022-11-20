@@ -1,4 +1,3 @@
-
 <template>
   <v-app>
     <v-main>
@@ -43,7 +42,7 @@
                     ></v-text-field>
                   </validation-provider>
 
-                  <v-list-item class="subtitle-1 font-weight-bold" to="/historial" link>
+                  <v-list-item class="subtitle-1 font-weight-bold" to="/" link>
                     ¿Has olvidado tu contraseña?
                   </v-list-item>
 
@@ -92,6 +91,7 @@
 <script>
 import {required, email} from 'vee-validate/dist/rules'
 import {extend, ValidationObserver, ValidationProvider, setInteractionMode} from 'vee-validate'
+import {getLogin} from "@/User/services/profileServices";
 
 setInteractionMode('eager')
 
@@ -105,7 +105,6 @@ extend('email', {
   message: 'El correo tiene que ser válido',
 })
 
-import axios from 'axios'
 export default {
   components: {
     ValidationProvider,
@@ -121,15 +120,15 @@ export default {
     submit() {
       this.$refs.observer.validate()
     },
-    async login(){
-      var urlemail = encodeURIComponent(this.email)
-      var urlpassword = encodeURIComponent(this.password)
-      let result = await axios.get(`https://alpacafinance.azurewebsites.net/api/v1/usuario/login?email=${urlemail}&password=${urlpassword}`)
+    async login() {
+      const urlEmail = encodeURIComponent(this.email);
+      const urlPassword = encodeURIComponent(this.password);
+      let result = await getLogin(urlEmail, urlPassword)
 
-      if(result.status==200){
-        this.$router.go("/simulator")
+      if (result.status === 200) {
+        console.log(result.data)
+        await this.$router.push({name: 'simulator', params: {id:result.data.id}})
       }
-
     },
   },
 }

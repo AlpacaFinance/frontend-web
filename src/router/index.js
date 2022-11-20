@@ -10,23 +10,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'simulator',
-    component: SimulatorView
-  },
-  {
-    path: '/simulador',
-    name: 'simulator',
-    component: SimulatorView
-  },
-  {
-    path: '/historial',
-    name: 'history',
-    component: HistoryView
-  },
-  {
-    path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/simulador/:id?',
+    name: 'simulator',
+    component: SimulatorView
+  },
+  {
+    path: '/historial/:id?',
+    name: 'history',
+    component: HistoryView
   },
   {
     path: '/signup',

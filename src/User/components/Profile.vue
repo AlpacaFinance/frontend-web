@@ -33,23 +33,25 @@
       </template>
     </div>
     <v-card-title>
-      Diana Gómez
+      {{userData.name}}
     </v-card-title>
     <v-card-subtitle>
-      didi2000@test.com
+      {{userData.email}}
     </v-card-subtitle>
     <v-card-text >
       <p class="font-weight-bold">DNI:</p>
-      <p>__dni__</p>
+      <p>{{userData.dni}}</p>
       <p class="font-weight-bold">Pais:</p>
-      <p>__country__</p>
+      <p>{{userData.country}}</p>
       <p class="font-weight-bold">Número de contacto:</p>
-      <p>__phone__</p>
+      <p>{{userData.telephone}}</p>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import {getProfileByUserId} from "@/User/services/profileServices";
+
 export default {
   name: 'Profile',
 
@@ -57,6 +59,13 @@ export default {
     errors: [],
     editInfo: false,
     customer: [],
+    userData: '',
   }),
+
+  props: ['id'],
+
+  async mounted() {
+    this.userData = await getProfileByUserId(this.$route.params.id)
+  }
 }
 </script>

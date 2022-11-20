@@ -8,13 +8,14 @@ export async function getProfileByUserId(idUser) {
 }
 
 export async function getLogin(urlEmail, urlPassword) {
-    const response =  await axios.get(`${apiUrl}/login?email=${urlEmail}&password=${urlPassword}`);
+    const response =  await axios.get(
+        `${apiUrl}/login?email=${urlEmail}&password=${urlPassword}`);
     return response;
 }
 
 export async function postUser(user) {
     let userData = null;
-    const response = await axios.post(`${apiUrl}/register/`, user);
-    userData = response.data
-    return userData
+    const response = await axios.post(`${apiUrl}/register`, user);
+    userData = response;
+    return userData;
 }

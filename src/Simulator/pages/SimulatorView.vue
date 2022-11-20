@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="3">
-        <Profile :id="userId"></Profile>
+        <Profile></Profile>
       </v-col>
 
       <v-col cols="9">

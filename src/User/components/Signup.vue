@@ -190,10 +190,10 @@
                       align="center"
                       justify="space-around">
                     <v-btn
+                        v-on:click="signup"
                         width="80%"
                         rounded
                         color="primary"
-                        to="/"
                         type="submit"
                         :disabled="invalid"
                     >
@@ -277,24 +277,22 @@ export default {
     submit() {
       this.$refs.observer.validate()
     },
-    async signup() {
+    signup() {
       let user = {
         name: this.firstName + '' + this.lastName,
         dni: this.documentNumber,
         email: this.email,
-        password: this.password,
+        direction: 'Lima',
         country: this.country,
-        phone: this.phoneNumber,
+        password: this.password,
+        telephone: this.phoneNumber,
+        imageURL: '',
       };
 
-      await postUser(user).then(resp =>{
+      postUser(user).then(resp =>{
         console.log(resp)
         this.$router.push("/login")
       });
-
-      /*if (result.status === 200) {
-        console.log(result.data)
-      }*/
     },
   },
 }

@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import {getHistoryByUser} from "@/History/services/HistoryServices";
+
 export default {
   name: 'HistoryComponent',
   data () {
@@ -33,44 +35,32 @@ export default {
         { text: 'Tipo de Tasa', value: 'rateType', sortable:false },
         { text: 'Importe', value: 'amount', sortable:false },
       ],
-      historyElements: [
-        {
-          infoOperation: 'Frozen Yogurt',
-          divisa: 159,
-          percentage: 6.0,
-          rateType: 24,
-          amount: 4.0,
-        },
-        {
-          infoOperation: 'Ice cream sandwich',
-          divisa: 237,
-          percentage: 9.0,
-          rateType: 37,
-          amount: 4.3,
-        },
-        {
-          infoOperation: 'Eclair',
-          divisa: 262,
-          percentage: 16.0,
-          rateType: 23,
-          amount: 6.0,
-        },
-        {
-          infoOperation: 'Cupcake',
-          divisa: 305,
-          percentage: 3.7,
-          rateType: 67,
-          amount: 4.3,
-        },
-        {
-          infoOperation: 'Gingerbread',
-          divisa: 356,
-          percentage: 16.0,
-          rateType: 49,
-          amount: 3.9,
-        },
-      ],
+      historyElements: [],
     }
+  },
+
+  props: ['id'],
+
+  methods: {
+    async operationList() {
+      let result = await getHistoryByUser(this.$route.params.id);
+
+      for(let key in result) {
+        let operation = {
+          infoOperation: result[key]['date'],
+          divisa: result[key]['divisa']['nameDivisa'],
+          percentage: result[key]['percentage'],
+          rateType: result[key]['rateType']['nameType'],
+          amount: result[key]['import'],
+        }
+        this.historyElements.push(operation)
+        console.log(this.historyElements)
+      }
+    },
+  },
+
+  created() {
+    this.operationList();
   },
 }
 </script>

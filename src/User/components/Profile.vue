@@ -9,9 +9,9 @@
               class="d-flex child-flex"
           >
             <v-img
-                :src="`https://upload.wikimedia.org/wikipedia/commons/0/0d/Camila_Cabello_Vogue_2.jpg`"
-                :lazy-src="`https://upload.wikimedia.org/wikipedia/commons/0/0d/Camila_Cabello_Vogue_2.jpg`"
-                aspect-ratio="1"
+                :src="this.imageURL"
+                :lazy-src="this.imageURL"
+                aspect-ratio="0.9"
                 width="25"
                 class="grey lighten-2 rounded-circle"
             >
@@ -60,6 +60,7 @@ export default {
     editInfo: false,
     customer: [],
     userData: '',
+    imageURL: 'https://www.mastercard.com/news/media/yi2dv54u/camila-x-mc2.jpg',
   }),
 
   props: ['id'],

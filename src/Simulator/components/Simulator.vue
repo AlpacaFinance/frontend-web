@@ -46,7 +46,7 @@
             </p>
             <v-select
                 v-model="select"
-                :items="items"
+                :items="rateType"
                 :error-messages="errors"
                 label="Tasa de Interés"
                 data-vv-name="select"
@@ -168,15 +168,10 @@
       ],
       rate: '',
       rateRules: [
-        v => !!v || 'Import is required',
+        v => !!v || 'Rate is required',
       ],
       select: null,
-      items: [
-        'Simple',
-        'Nominal',
-        'Compuesta',
-        'Efectiva',
-      ],
+      rateType: [],
 
       // Periodo de Gracia
       gracePeriodHeaders: [
@@ -243,20 +238,17 @@
       /*submit() {
         this.$refs.observer.validate()
       },*/
-      async rateTypeList() {
-        let result = await getRateTypeList()
 
-        if (result.status === 200) {
-          console.log(result.data)
+      async rateTypeList() {
+        let result = await getRateTypeList();
+
+        for(let key in result){
+          this.rateType.push(result[key]['nameType'])
         }
       },
     },
-    mounted() {
-      let result = getRateTypeList()
-
-      if (result.status === 200) {
-        console.log(result.data)
-      }
+    async mounted() {
+      await this.rateTypeList()
     },
   }
 </script>

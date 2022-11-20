@@ -154,7 +154,7 @@
 </template>
 
 <script>
-  import {getRateTypeList} from "@/Simulator/services/simulatorServices";
+  import {getRateTypeList} from "@/Simulator/services/rateTypeServices";
 
   export default {
     name: 'SimulatorComponent',

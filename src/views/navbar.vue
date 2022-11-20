@@ -32,7 +32,7 @@
       <v-btn
           v-for="(item, index) in externalRutes" :key="index"
           text
-          @click="insertRutes(item.rute)"
+          @click="insertExternalRutes(item.rute)"
       >
         <span class="mr-2">{{item.name}}</span>
       </v-btn>
@@ -44,7 +44,7 @@
       <v-btn
           v-for="(item, index) in internalRutes" :key="index"
           text
-          @click="insertRutes(item.rute)"
+          @click="insertInternalRutes(item.rute)"
       >
         <span class="mr-2">{{item.name}}</span>
       </v-btn>
@@ -60,7 +60,7 @@ export default {
 
   data: () => ({
     externalRutes:[
-      { name: 'Iniciar sesión', rute: '/login' },
+      { name: 'Iniciar sesión', rute: '/' },
       { name: 'Registrarse', rute: '/signup' }
     ],
     internalRutes:[
@@ -72,9 +72,12 @@ export default {
   }),
 
   methods: {
-    insertRutes(rute){
+    insertExternalRutes(rute){
+      this.$router.push(rute);
+    },
+    insertInternalRutes(rute){
       this.$router.push(rute + this.userId);
-    }
+    },
   },
   mounted() {
     this.userId = this.$route.params.id;

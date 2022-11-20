@@ -148,7 +148,7 @@
                             v-model="phoneNumber"
                             :counter="9"
                             :error-messages="errors"
-                            label="Phone Number"
+                            label="Número de teléfono"
                             required
                         ></v-text-field>
                       </validation-provider>

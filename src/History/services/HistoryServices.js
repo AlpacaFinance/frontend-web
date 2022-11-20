@@ -8,3 +8,8 @@ export async function getHistoryByUser(idUser) {
     operations = response.data;
     return operations;
 }
+
+export async function deleteOperation(idOperation) {
+    const response = await axios.delete(`${apiUrl}/${idOperation}`)
+    return response
+}

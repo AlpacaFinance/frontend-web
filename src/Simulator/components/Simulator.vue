@@ -175,12 +175,12 @@
 
       // Periodo de Gracia
       gracePeriodHeaders: [
-        { text: 'Periodo', value: 'period', sortable: false },
-        { text: 'Deuda inicial del mes', value: 'initialDebt', sortable: false },
-        { text: 'Factor mensual', value: 'monthlyFactor', sortable: false },
-        { text: 'Deuda antes del pago', value: 'previousDebt', sortable: false },
-        { text: 'Pago del mes', value: 'monthlyPayment', sortable: false },
-        { text: 'Deuda final del mes', value: 'finalDebt', sortable: false },
+        { text: 'Periodo', value: 'period', sortable: false, class: 'blue lighten-3' },
+        { text: 'Deuda inicial del mes', value: 'initialDebt', sortable: false, class: 'blue lighten-3' },
+        { text: 'Factor mensual', value: 'monthlyFactor', sortable: false, class: 'blue lighten-3' },
+        { text: 'Deuda antes del pago', value: 'previousDebt', sortable: false, class: 'blue lighten-3' },
+        { text: 'Pago del mes', value: 'monthlyPayment', sortable: false, class: 'blue lighten-3' },
+        { text: 'Deuda final del mes', value: 'finalDebt', sortable: false, class: 'blue lighten-3' },
       ],
       gracePeriods: [
         {
@@ -195,8 +195,8 @@
 
       // Actividades de Operación
       operatingActivityHeaders: [
-        { text: 'Operacion', value: 'operation', sortable: false },
-        { text: 'Importe', value: 'amount', sortable: false },
+        { text: 'Operacion', value: 'operation', sortable: false, class: 'blue lighten-3' },
+        { text: 'Importe', value: 'amount', sortable: false, class: 'blue lighten-3' },
       ],
       operatingActivities: [
         {
@@ -207,8 +207,8 @@
 
       // Actividades Financieras
       financialActivityHeaders: [
-        { text: 'Operacion', value: 'operation', sortable: false },
-        { text: 'Importe', value: 'amount', sortable: false },
+        { text: 'Operacion', value: 'operation', sortable: false, class: 'blue lighten-3' },
+        { text: 'Importe', value: 'amount', sortable: false, class: 'blue lighten-3' },
       ],
       financialActivities: [
         {
@@ -219,8 +219,8 @@
 
       // Actividades de Inversión
       investmentActivityHeaders: [
-        { text: 'Operacion', value: 'operation', sortable: false },
-        { text: 'Importe', value: 'amount', sortable: false },
+        { text: 'Operacion', value: 'operation', sortable: false, class: 'blue lighten-3' },
+        { text: 'Importe', value: 'amount', sortable: false, class: 'blue lighten-3' },
       ],
       investmentActivities: [
         {

@@ -125,7 +125,6 @@ export default {
       let result = await getLogin(urlEmail, urlPassword)
 
       if (result.status === 200) {
-        console.log(result.data)
         await this.$router.push({name: 'simulator', params: {id:result.data.id}})
       }
     },

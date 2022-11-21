@@ -6,7 +6,7 @@
       </v-col>
 
       <v-col cols="9">
-        <Simulator/>
+        <SimulatorV2/>
       </v-col>
     </v-row>
   </v-container>
@@ -14,6 +14,7 @@
 
 <script>
 import Simulator from '../components/Simulator'
+import SimulatorV2 from '../components/SimulatorV2'
 import Profile from "@/User/components/Profile"
 
 export default {
@@ -21,6 +22,7 @@ export default {
 
   components: {
     Simulator,
+    SimulatorV2,
     Profile
   },
 }

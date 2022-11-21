@@ -56,6 +56,7 @@
                         rounded
                         color="primary"
                         :disabled="invalid"
+                        type="submit"
                     >
                       Iniciar Sesión
                     </v-btn>

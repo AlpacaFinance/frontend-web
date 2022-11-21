@@ -77,12 +77,12 @@ export default {
     auxId: '',
     search: '',
     historyHeaders: [
-      { text: 'Información de Operación', value: 'infoOperation', sortable:false, align: 'start', class: 'blue lighten-3' },
-      { text: 'Moneda', value: 'divisa', sortable:false, class: 'blue lighten-3' },
-      { text: 'Tasa de Interés', value: 'percentage', sortable:false, class: 'blue lighten-3' },
-      { text: 'Tipo de Tasa', value: 'rateType', sortable:false, class: 'blue lighten-3' },
-      { text: 'Importe', value: 'amount', sortable:false, class: 'blue lighten-3' },
-      { text: ' ', value: 'actions', sortable: false, class: 'blue lighten-3' },
+      { text: 'Información de Operación', value: 'infoOperation', sortable:false, align: 'center', class: 'blue lighten-3' },
+      { text: 'Moneda', value: 'divisa', sortable:false, align: 'center', class: 'blue lighten-3' },
+      { text: 'Tasa de Interés', value: 'percentage', sortable:false, align: 'center', class: 'blue lighten-3' },
+      //{ text: 'Tipo de Tasa', value: 'rateType', sortable:false, align: 'center', class: 'blue lighten-3' },
+      { text: 'Importe', value: 'amount', sortable:false, align: 'center', class: 'blue lighten-3' },
+      { text: ' ', value: 'actions', sortable: false, align: 'center', class: 'blue lighten-3' },
     ],
     historyElements: [],
     index: -1,
@@ -103,9 +103,9 @@ export default {
           operationId: result[key]['id'],
           infoOperation: result[key]['date'],
           divisa: result[key]['divisa']['nameDivisa'],
-          percentage: result[key]['percentage'],
-          rateType: result[key]['rateType']['nameType'],
-          amount: result[key]['import'],
+          percentage: result[key]['percentage'] + "%",
+          //rateType: result[key]['rateType']['nameType'],
+          amount: result[key]['import']
         }
         this.historyElements.push(operation)
       }
@@ -119,7 +119,6 @@ export default {
 
     deleteItemConfirm () {
       deleteOperation(this.index)
-      this.operationList();
       this.closeDelete()
     },
 
